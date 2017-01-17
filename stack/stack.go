@@ -4,24 +4,23 @@ import (
 	"errors"
 )
 
-// Stack is a FILO data structure.
-// Stack supports two major methods: push and pop.
+// 堆栈是一个先进后出的数据结构
 type Stack struct {
 	data []interface{}
 	len  int
 }
 
-// New returns an initial empty stack
+// 初始化一个空堆栈，返回一个指针
 func New() *Stack {
 	return &Stack{}
 }
 
-// Length return how many elements are in a list
+// 返回堆栈的数组长度
 func (s *Stack) Length() int {
 	return s.len
 }
 
-// IsEmpty returns if stack is empty
+// 判断是否为空
 func (s *Stack) IsEmpty() bool {
 	return s.len == 0
 }
@@ -37,7 +36,7 @@ func (s *Stack) Push(element interface{}) {
 	s.data = append(s.data, element)
 }
 
-// Pop removes and returns the toppest element in stack
+// 返回类型的第一个参数是 Interface{} 类型的，即任意类型的
 func (s *Stack) Pop() (interface{}, error) {
 
 	if s.IsEmpty() {
